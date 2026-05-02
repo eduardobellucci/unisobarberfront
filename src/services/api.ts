@@ -1,4 +1,6 @@
-const API_URL = import.meta.env.VITE_API_URL?.trim().replace(/\/+$/, "") ?? "";
+const rawApiUrl = (import.meta.env.VITE_API_URL ?? "http://localhost:3333/api").trim();
+const apiBaseUrl = rawApiUrl.replace(/\/+$/, "");
+const API_URL = apiBaseUrl.endsWith("/api") ? apiBaseUrl : `${apiBaseUrl}/api`;
 
 type RequestOptions = RequestInit & {
   body?: unknown;
@@ -16,11 +18,18 @@ export async function apiRequest<T>(
   options: RequestOptions = {},
 ): Promise<{ ok: boolean; data?: T; message?: string }> {
   try {
-    if (!API_URL) {
+    if (!apiBaseUrl) {
       return { ok: false, message: "VITE_API_URL nao configurada." };
     }
 
-    const endpoint = path.startsWith("/") ? path : `/${path}`;
+    const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+    const endpoint =
+      normalizedPath === "/api"
+        ? ""
+        : normalizedPath.startsWith("/api/")
+          ? normalizedPath.slice(4)
+          : normalizedPath;
+
     const response = await fetch(`${API_URL}${endpoint}`, {
       headers: {
         "Content-Type": "application/json",
