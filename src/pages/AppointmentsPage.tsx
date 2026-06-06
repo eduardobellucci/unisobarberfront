@@ -18,11 +18,10 @@ type AppointmentIdentityFields = Appointment & Partial<{
 
 const STATUS_CONFIRMADO = "Confirmado";
 const STATUS_CANCELADO = "Cancelado";
-<<<<<<< HEAD
+
 const STATUS_CONCLUIDO = "Concluído";
-=======
-const STATUS_CONCLUIDO = "Conclu\u00eddo";
->>>>>>> 3ebb5d3c8714884325aacb662373691587fc1832
+
+
 
 function normalize(value?: string) {
   return (value ?? "")
@@ -127,32 +126,28 @@ export default function AppointmentsPage() {
       <header className="topbar">
         <div>
           <h1>Agendamentos</h1>
-<<<<<<< HEAD
+
           <p style={{ margin: "4px 0", color: "var(--muted)" }}>Acompanhe seu histórico</p>
-=======
-          <p style={{ margin: "4px 0", color: "var(--muted)" }}>Acompanhe seu hist\u00f3rico</p>
->>>>>>> 3ebb5d3c8714884325aacb662373691587fc1832
+
+          
+
         </div>
       </header>
 
       <div className="chip-group">
         <button className={`chip ${tab === "upcoming" ? "active" : ""}`} onClick={() => setTab("upcoming")}>
-<<<<<<< HEAD
+
           Próximos
-=======
-          Pr\u00f3ximos
->>>>>>> 3ebb5d3c8714884325aacb662373691587fc1832
+
         </button>
         <button className={`chip ${tab === "past" ? "active" : ""}`} onClick={() => setTab("past")}>
           Anteriores
         </button>
       </div>
 
-<<<<<<< HEAD
+
       <div className="section-title">{tab === "upcoming" ? "Próximos agendamentos" : "Histórico"}</div>
-=======
-      <div className="section-title">{tab === "upcoming" ? "Pr\u00f3ximos agendamentos" : "Hist\u00f3rico"}</div>
->>>>>>> 3ebb5d3c8714884325aacb662373691587fc1832
+
       <div className="stack">
         {list.map((appointment) => (
           <AppointmentCard
