@@ -107,10 +107,9 @@ button {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 16px;
-<<<<<<< HEAD
+
   color: var(--text);
-=======
->>>>>>> 3ebb5d3c8714884325aacb662373691587fc1832
+
   padding: 16px;
 }
 
@@ -411,7 +410,3 @@ button {
   background: rgba(34, 197, 94, 0.2);
   color: var(--success);
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 3ebb5d3c8714884325aacb662373691587fc1832
